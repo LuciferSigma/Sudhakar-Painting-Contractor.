@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sudhakar Painting Contractor</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f5f3;
+  color: #183b30;
+}
+header {
+  background: #174b39;
+  color: white;
+  text-align: center;
+  padding: 28px 12px;
+}
+header h1 { font-size: 25px; margin: 0 0 10px; }
+header p { margin: 0; }
+main {
+  max-width: 480px;
+  margin: 30px auto;
+  padding: 24px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px #00000012;
+}
+h2 { margin-top: 0; }
+label { display: block; margin: 16px 0 7px; }
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #bdcbc3;
+  border-radius: 7px;
+  font: inherit;
+}
+textarea { resize: vertical; }
+button, .contact {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  margin-top: 16px;
+  border: 0;
+  border-radius: 7px;
+  background: #174b39;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+.whatsapp { background: #168746; }
+#result {
+  display: none;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+.note { font-size: 13px; color: #58665f; }
+footer { text-align: center; padding: 20px; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>SUDHAKAR PAINTING CONTRACTOR</h1>
+  <p>Quality Painting • Trusted Service</p>
+</header>
+
+<main>
+  <h2>Customer Registration</h2>
+  <p>Enter your details to contact our contractor.</p>
+
+  <form id="registerForm">
+    <label for="name">Full Name</label>
+    <input id="name" name="name" required
+           autocomplete="name" placeholder="Your full name">
+
+    <label for="phone">Your Phone Number</label>
+    <input id="phone" name="phone" type="tel" required
+           autocomplete="tel" placeholder="Your phone number">
+
+    <label for="address">Your Address</label>
+    <textarea id="address" name="address" required
+              autocomplete="street-address" rows="3"
+              placeholder="Your home address"></textarea>
+
+    <button type="submit">Register Now</button>
+  </form>
+
+  <section id="result" aria-live="polite">
+    <h2>Registration Complete!</h2>
+    <p id="greeting"></p>
+    <p>Contact Sudhakar Painting Contractor:</p>
+
+    <a class="contact" id="callButton" href="#">Call Contractor</a>
+    <a class="contact whatsapp" id="whatsappButton"
+       href="#" target="_blank" rel="noopener">
+       Message on WhatsApp
+    </a>
+  </section>
+
+  <p class="note">
+    Demo version: your registration is not saved or sent to the contractor.
+  </p>
+</main>
+
+<footer>
+  &copy; 2026 Sudhakar Painting Contractor
+</footer>
+
+<script>
+// Replace this with the contractor's real number.
+// Use country code 91 and digits only, without + or spaces.
+const contractorNumber = "91XXXXXXXXXX";
+
+document.getElementById("registerForm").addEventListener("submit",
+  function(event) {
+    event.preventDefault();
+
+    if (contractorNumber.includes("X")) {
+      alert("The website owner must add the contractor's real phone number first.");
+      return;
+    }
+
+    const name = document.getElementById("name").value.trim();
+    document.getElementById("greeting").textContent =
+      "Thank you, " + name + "! You can now contact the contractor.";
+
+    document.getElementById("callButton").href =
+      "tel:+" + contractorNumber;
+
+    document.getElementById("whatsappButton").href =
+      "https://wa.me/" + contractorNumber;
+
+    document.getElementById("result").style.display = "block";
+    document.getElementById("result").scrollIntoView({
+      behavior: "smooth"
+    });
+  }
+);
+</script>
+
+</body>
+</html>
